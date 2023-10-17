@@ -4,23 +4,23 @@ kind: ConfigMap
 metadata:
   name: argocd-notifications-cm
 data:
-  context:
+  context: |
     myUsername: "Donato" # ADD HERE YOUR USERNAME
-  service.webhook.discord:
+  service.webhook.discord: |
     url: "https://discord.com/api/webhooks/959353458048241664/DQ9UR_ceQ21CpK6ztP7s_I0acHzbPyyhkcMr7W05cEY9G0tM6w3DCYyrFW3Hwuqkf6B3" # ADD HERE YOUR URL
     headers:
-      - name: Content-Type
-        value: application/json
-  template.app-sync-succeeded:
+    - name: Content-Type
+      value: application/json
+  template.app-sync-succeeded: |
     webhook:
       discord:
         method: POST
-        body:
+        body: |
           {
             "content": ":white_check_mark: - {{.context.myUsername}} synced their application successfully! \n:rocket: -  URL: {{call .repo.FullNameByRepoURL .app.spec.source.repoURL}}",
             "username": "ArgoCD",
-            "avatar_url": "https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png",
+            "avatar_url": "https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.png"
           }
-  trigger.mytrigger:
+  trigger.mytrigger: |
     - when: app.status.operationState.phase in ['Succeeded']
       send: [app-sync-succeeded]
