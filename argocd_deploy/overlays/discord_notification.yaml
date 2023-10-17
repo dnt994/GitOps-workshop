@@ -4,8 +4,7 @@ kind: ConfigMap
 metadata:
   name: argocd-notifications-cm
 data:
-  context: |
-    myUsername: "Donato" # ADD HERE YOUR USERNAME
+  context.myUsername: "Donato" # ADD HERE YOUR USERNAME
   service.webhook.discord: |
     url: "https://discord.com/api/webhooks/959353458048241664/DQ9UR_ceQ21CpK6ztP7s_I0acHzbPyyhkcMr7W05cEY9G0tM6w3DCYyrFW3Hwuqkf6B3" # ADD HERE YOUR URL
     headers:
