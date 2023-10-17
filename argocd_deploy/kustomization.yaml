@@ -1,9 +1,8 @@
 namespace: argocd
 
 bases:
-  - github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.3.1
-    #- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.3.2
-
+  #- github.com/argoproj/argo-cd/manifests/cluster-install?ref=v2.3.1
+  - github.com/argoproj/argo-cd/manifests/cluster-install
 resources:
   - resources/namespace.yaml
   - apps/argocd.yaml # Edit the file before applying!
